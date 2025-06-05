@@ -10,3 +10,15 @@
 ##  1. Organize files by extension.                                                                   ##
 ##  2. Automatically creates the default structure where the files will be stored.                    ##
 ########################################################################################################
+
+declare -A folders=()
+
+for folder in "${!folders[@]}"; do
+    # Applying usage of here document to extract extensions as an array
+    # shellcheck disable=SC2162
+    read -a extensions <<< "${folders[$folder]}"
+    mkdir -p "$folder"
+    for ext in "${extensions[@]}"; do
+        mv ./*."$ext" "$folder" &> /dev/null
+    done
+done
