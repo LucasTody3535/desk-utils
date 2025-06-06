@@ -11,7 +11,51 @@
 ##  2. Automatically creates the default structure where the files will be stored.                    ##
 ########################################################################################################
 
-declare -A folders=()
+declare -A folders=(
+    ["ms_office/word/documents"]="doc docx"
+    ["ms_office/word/templates"]="dot dotx"
+    ["ms_office/word/macros"]="docm dotm"
+    ["ms_office/excel/documents"]="xls xlsx"
+    ["ms_office/excel/templates"]="xlt xltx"
+    ["ms_office/excel/macros"]="xlm xlsm xltm"
+    ["ms_office/power_point/documents"]="ppt pptx"
+    ["ms_office/power_point/templates"]="pot potx"
+    ["ms_office/power_point/macros"]="pptm potm ppsm sldm"
+    ["ms_office/power_point/slideshows"]="pps ppsx sldx"
+    ["acrobat/pdf_documents"]="pdf"
+    ["libreoffice/writer/documents"]="odt fodt"
+    ["libreoffice/writer/templates"]="ott"
+    ["libreoffice/calc/documents"]="ods fods"
+    ["libreoffice/calc/templates"]="ots"
+    ["libreoffice/impress/documents"]="odp fodp"
+    ["libreoffice/impress/templates"]="otp"
+    ["libreoffice/impress/drawings"]="odg"
+    ["images/png"]="png"
+    ["images/avif"]="avif"
+    ["images/gif"]="gif"
+    ["images/jpeg"]="jpg jpeg"
+    ["images/svg"]="svg"
+    ["images/webp"]="webp"
+    ["images/bitmap"]="bmp"
+    ["images/ico"]="ico"
+    ["compressed_files/zip"]="zip"
+    ["compressed_files/bzip2"]="bz2"
+    ["compressed_files/gzip"]="gz"
+    ["compressed_files/tar"]="tar"
+    ["compressed_files/rar"]="rar"
+    ["compressed_files/7zip"]="7z"
+    ["java/jars"]="jar"
+    ["uncategorized/drawio"]="drawio"
+    ["uncategorized/txt"]="txt"
+    ["applications/windows/msi"]="msi"
+    ["applications/windows/exe"]="exe"
+    ["applications/linux/deb"]="deb"
+    ["applications/linux/appimage"]="AppImage"
+    ["audios/mp3"]="mp3"
+    ["audios/wav"]="wav"
+    ["videos/mp4"]="mp4"
+    ["so_images/"]="iso"
+)
 
 for folder in "${!folders[@]}"; do
     # Applying usage of here document to extract extensions as an array
