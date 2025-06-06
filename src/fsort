@@ -61,10 +61,16 @@ for folder in "${!folders[@]}"; do
     # Applying usage of here document to extract extensions as an array
     # shellcheck disable=SC2162
     read -a extensions <<< "${folders[$folder]}"
-    mkdir -p "$folder"
+    [[ -n $(find ./ -maxdepth 1 -name "*.""${extensions[0]}") ]] && mkdir -p "$folder"
     for ext in "${extensions[@]}"; do
         for file in ./*."$ext"; do
             mv -n "$file" "$folder" &> /dev/null
+            if [[ -e $file ]]; then
+                # Remove the .{ext} from filename
+                filename=$(echo "${file}" | cut -d '.' -f 2)
+                # Move file appending a random number to the destination folder
+                mv -n "./${filename}.${ext}" "./${folder}""${filename}${RANDOM}.${ext}"
+            fi
         done
     done
 done
