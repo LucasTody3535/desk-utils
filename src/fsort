@@ -63,7 +63,9 @@ for folder in "${!folders[@]}"; do
     read -a extensions <<< "${folders[$folder]}"
     mkdir -p "$folder"
     for ext in "${extensions[@]}"; do
-        mv -n ./*."$ext" "$folder" &> /dev/null
+        for file in ./*."$ext"; do
+            mv -n "$file" "$folder" &> /dev/null
+        done
     done
 done
 
