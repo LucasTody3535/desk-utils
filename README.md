@@ -9,5 +9,5 @@ A collection of scripts I made to help with common tasks like file organization 
 
 ## TODO
 
-[] Implement file organization.<br>
+[ OK ] Implement file organization.<br>
 [] Implement file backups.
