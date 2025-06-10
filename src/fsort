@@ -61,7 +61,9 @@ for folder in "${!folders[@]}"; do
     # Applying usage of here document to extract extensions as an array
     # shellcheck disable=SC2162
     read -a extensions <<< "${folders[$folder]}"
-    [[ -n $(find ./ -maxdepth 1 -name "*.""${extensions[0]}") ]] && mkdir -p "$folder"
+    for ext in "${extensions[@]}"; do
+        [[ -n $(find ./ -maxdepth 1 -name "*.""${ext}") ]] && mkdir -p "$folder" && break
+    done
     for ext in "${extensions[@]}"; do
         for file in ./*."$ext"; do
             mv -n "$file" "$folder" &> /dev/null
