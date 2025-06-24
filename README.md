@@ -9,5 +9,13 @@ A collection of scripts I made to help with common tasks like file organization 
 
 ## TODO
 
-[ OK ] Implement file organization.<br>
-[] Implement file backups.
+<ol>
+    <li>
+        <p>
+            <s>Implement file organization.</s>
+        </p>
+    </li>
+    <li>
+        <p>Implement file backups.</p>
+    </li>
+</ol>
