@@ -29,3 +29,7 @@ declare -A folders=(
     ["videos"]="videos-bkp"
     ["os_images"]="os_images-bkp"
 )
+
+dest_folder=$(date +%d-%m-%Y)
+[[ -d backups ]] || mkdir backups
+[[ -d backups/$dest_folder ]] || mkdir backups/"$dest_folder"
