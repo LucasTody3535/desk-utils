@@ -33,3 +33,9 @@ declare -A folders=(
 dest_folder=$(date +%d-%m-%Y)
 [[ -d backups ]] || mkdir backups
 [[ -d backups/$dest_folder ]] || mkdir backups/"$dest_folder"
+
+echo "Generating backup..."
+for folder in "${!folders[@]}"; do
+    tar -cvf backups/"$dest_folder"/"${folders[$folder]}".tar "$folder" &> /dev/null
+done
+echo "Backups generated! ($(date +%d-%m-%Y))"
