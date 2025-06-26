@@ -16,6 +16,8 @@ A collection of scripts I made to help with common tasks like file organization 
         </p>
     </li>
     <li>
-        <p>Implement file backups.</p>
+        <p>
+            <s>Implement file backups.</s>
+        </p>
     </li>
 </ol>
