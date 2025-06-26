@@ -54,7 +54,7 @@ declare -A folders=(
     ["audios/mp3"]="mp3"
     ["audios/wav"]="wav"
     ["videos/mp4"]="mp4"
-    ["so_images/"]="iso"
+    ["os_images/"]="iso"
 )
 
 for folder in "${!folders[@]}"; do
