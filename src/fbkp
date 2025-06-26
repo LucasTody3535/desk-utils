@@ -10,3 +10,22 @@
 ##  1. Creates backup files.                                                                          ##
 ##  2. Organize backups by date                                                                       ##
 ########################################################################################################
+
+declare -A folders=(
+    ["ms_office/word"]="word-bkp"
+    ["ms_office/excel"]="excel-bkp"
+    ["ms_office/power_point"]="power_point-bkp"
+    ["acrobat/pdf_documents"]="pdf-bkp"
+    ["libreoffice/writer"]="writer-bkp"
+    ["libreoffice/calc"]="calc-bkp"
+    ["libreoffice/impress/documents"]="impress-bkp"
+    ["images"]="images-bkp"
+    ["compressed_files"]="compressed_files-bkp"
+    ["java"]="java_files-bkp"
+    ["uncategorized"]="others-bkp"
+    ["applications/windows"]="win_apps-bkp"
+    ["applications/linux"]="linux_apps-bkp"
+    ["audios"]="audios-bkp"
+    ["videos"]="videos-bkp"
+    ["os_images"]="os_images-bkp"
+)
