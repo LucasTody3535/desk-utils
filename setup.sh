@@ -2,4 +2,4 @@
 
 NEW_PATH="$PATH":$(pwd)/src
 
-[[ -e ~/.bashrc ]] && echo "$NEW_PATH" >> ~/.bashrc
+[[ -e ~/.bashrc ]] && echo PATH="$NEW_PATH" >> ~/.bashrc
