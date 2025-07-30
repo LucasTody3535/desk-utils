@@ -16,6 +16,18 @@ setup() {
     > ./target/file.xlm
     > ./target/file.xlsm
     > ./target/file.xltm
+
+    > ./target/file.ppt
+    > ./target/file.pptx
+    > ./target/file.pot
+    > ./target/file.potx
+    > ./target/file.pptm
+    > ./target/file.potm
+    > ./target/file.ppsm
+    > ./target/file.sldm
+    > ./target/file.pps
+    > ./target/file.ppsx
+    > ./target/file.sldx
 }
 
 remove_folders() {
@@ -104,6 +116,70 @@ excel_macros_are_organized() {
     printf "OK\n"
 }
 
+power_point_documents_are_organized() {
+    printf "    > Power Point documents organization..."
+    if ! [[ -e ./target/ms_office/power_point/documents/file.ppt ]]; then
+        echo -e "\n\t! .ppt not found"
+        exit 1
+    fi
+    if ! [[ -e ./target/ms_office/power_point/documents/file.pptx ]]; then
+        echo -e "\n\t! .pptx not found"
+        exit 1
+    fi
+    printf "OK\n"
+}
+
+power_point_templates_are_organized() {
+    printf "    > Power Point templates organization..."
+    if ! [[ -e ./target/ms_office/power_point/templates/file.pot ]]; then
+        echo -e "\n\t! .pot not found"
+        exit 1
+    fi
+    if ! [[ -e ./target/ms_office/power_point/templates/file.potx ]]; then
+        echo -e "\n\t! .potx not found"
+        exit 1
+    fi
+    printf "OK\n"
+}
+
+power_point_macros_are_organized() {
+    printf "    > Power Point macros organization..."
+    if ! [[ -e ./target/ms_office/power_point/macros/file.pptm ]]; then
+        echo -e "\n\t! .pptm not found"
+        exit 1
+    fi
+    if ! [[ -e ./target/ms_office/power_point/macros/file.potm ]]; then
+        echo -e "\n\t! .potm not found"
+        exit 1
+    fi
+    if ! [[ -e ./target/ms_office/power_point/macros/file.ppsm ]]; then
+        echo -e "\n\t! .ppsm not found"
+        exit 1
+    fi
+    if ! [[ -e ./target/ms_office/power_point/macros/file.sldm ]]; then
+        echo -e "\n\t! .sldm not found"
+        exit 1
+    fi
+    printf "OK\n"
+}
+
+power_point_slideshows_are_organized() {
+    printf "    > Power Point slideshows organization..."
+    if ! [[ -e ./target/ms_office/power_point/slideshows/file.pps ]]; then
+        echo -e "\n\t! .pps not found"
+        exit 1
+    fi
+    if ! [[ -e ./target/ms_office/power_point/slideshows/file.ppsx ]]; then
+        echo -e "\n\t! .ppsx not found"
+        exit 1
+    fi
+    if ! [[ -e ./target/ms_office/power_point/slideshows/file.sldx ]]; then
+        echo -e "\n\t! .sldx not found"
+        exit 1
+    fi
+    printf "OK\n"
+}
+
 word_files_are_organized() {
     printf "\n  > Word files organization\n"
     word_documents_are_organized
@@ -120,6 +196,16 @@ excel_files_are_organized() {
     printf "\n"
 }
 
+power_point_files_are_organized() {
+    printf "  > Power Point files organization\n"
+    power_point_documents_are_organized
+    power_point_templates_are_organized
+    power_point_macros_are_organized
+    power_point_slideshows_are_organized
+    printf "\n"
+}
+
+
 clear
 echo "> Running tests"
 remove_folders
@@ -130,6 +216,7 @@ fsort &> /dev/null && cd ..
 
 word_files_are_organized
 excel_files_are_organized
+power_point_files_are_organized
 
 remove_folders
 echo -e "> Tests ended"
