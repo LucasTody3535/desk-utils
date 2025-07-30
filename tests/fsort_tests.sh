@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# shellcheck disable=SC2188
+setup() {
+    > ./target/file.doc
+    > ./target/file.docx
+}
+
+remove_folders() {
+    rm -rf ./target/ms_office
+}
+
+word_documents_are_organized() {
+    printf "    > Word documents organization..."
+    if ! [[ -e ./target/ms_office/word/documents/file.doc ]]; then
+        echo -e "\n\t! .doc not found"
+        exit 1
+    fi
+    if ! [[ -e ./target/ms_office/word/documents/file.docx ]]; then
+        echo -e "\n\t! .docx not found"
+        exit 1
+    fi
+    printf "OK\n"
+}
+
+word_files_are_organized() {
+    printf "\n  > Word files organization\n"
+    word_documents_are_organized
+    printf "\n"
+}
+
+clear
+echo "> Running tests"
+remove_folders
+setup
+
+cd ./target || exit
+fsort &> /dev/null && cd ..
+
+word_files_are_organized
+
+remove_folders
+echo -e "> Tests ended"
