@@ -4,6 +4,8 @@
 setup() {
     > ./target/file.doc
     > ./target/file.docx
+    > ./target/file.dot
+    > ./target/file.dotx
 }
 
 remove_folders() {
@@ -23,9 +25,23 @@ word_documents_are_organized() {
     printf "OK\n"
 }
 
+word_templates_are_organized() {
+    printf "    > Word templates organization..."
+    if ! [[ -e ./target/ms_office/word/templates/file.dot ]]; then
+        echo -e "\n\t! .dot not found"
+        exit 1
+    fi
+    if ! [[ -e ./target/ms_office/word/templates/file.dotx ]]; then
+        echo -e "\n\t! .dotx not found"
+        exit 1
+    fi
+    printf "OK\n"
+}
+
 word_files_are_organized() {
     printf "\n  > Word files organization\n"
     word_documents_are_organized
+    word_templates_are_organized
     printf "\n"
 }
 
