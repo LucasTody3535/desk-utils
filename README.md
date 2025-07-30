@@ -27,7 +27,10 @@ A collection of scripts I made to help with common tasks like file organization 
         <p>Check for folder existence before trying to generate backup of it.</p>
     </li>
     <li>
-        <p>Implement tests for fsort and fbkp.</p>
+        <p>Implement tests for fsort</p>
+    </li>
+    <li>
+        <p>Implement tests for fbkp</p>
     </li>
     <li>
         <p>Implement versioning strategy and lauch first version.</p>
