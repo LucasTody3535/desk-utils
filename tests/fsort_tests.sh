@@ -8,6 +8,14 @@ setup() {
     > ./target/file.dotx
     > ./target/file.docm
     > ./target/file.dotm
+
+    > ./target/file.xls
+    > ./target/file.xlsx
+    > ./target/file.xlt
+    > ./target/file.xltx
+    > ./target/file.xlm
+    > ./target/file.xlsm
+    > ./target/file.xltm
 }
 
 remove_folders() {
@@ -53,11 +61,62 @@ word_macros_are_organized() {
     printf "OK\n"
 }
 
+excel_documents_are_organized() {
+    printf "    > Excel documents organization..."
+    if ! [[ -e ./target/ms_office/excel/documents/file.xls ]]; then
+        echo -e "\n\t! .xls not found"
+        exit 1
+    fi
+    if ! [[ -e ./target/ms_office/excel/documents/file.xlsx ]]; then
+        echo -e "\n\t! .xlsx not found"
+        exit 1
+    fi
+    printf "OK\n"
+}
+
+excel_templates_are_organized() {
+    printf "    > Excel templates organization..."
+    if ! [[ -e ./target/ms_office/excel/templates/file.xlt ]]; then
+        echo -e "\n\t! .xlt not found"
+        exit 1
+    fi
+    if ! [[ -e ./target/ms_office/excel/templates/file.xltx ]]; then
+        echo -e "\n\t! .xltx not found"
+        exit 1
+    fi
+    printf "OK\n"
+}
+
+excel_macros_are_organized() {
+    printf "    > Excel macros organization..."
+    if ! [[ -e ./target/ms_office/excel/macros/file.xlm ]]; then
+        echo -e "\n\t! .xlm not found"
+        exit 1
+    fi
+    if ! [[ -e ./target/ms_office/excel/macros/file.xlsm ]]; then
+        echo -e "\n\t! .xlsm not found"
+        exit 1
+    fi
+    if ! [[ -e ./target/ms_office/excel/macros/file.xltm ]]; then
+        echo -e "\n\t! .xltm not found"
+        exit 1
+    fi
+    printf "OK\n"
+}
+
 word_files_are_organized() {
     printf "\n  > Word files organization\n"
     word_documents_are_organized
     word_templates_are_organized
     word_macros_are_organized
+    printf "\n"
+}
+
+excel_files_are_organized() {
+    printf "  > Excel files organization\n"
+    excel_documents_are_organized
+    excel_templates_are_organized
+    excel_macros_are_organized
     printf "\n"
 }
 
@@ -70,6 +129,7 @@ cd ./target || exit
 fsort &> /dev/null && cd ..
 
 word_files_are_organized
+excel_files_are_organized
 
 remove_folders
 echo -e "> Tests ended"
