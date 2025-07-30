@@ -9,7 +9,7 @@ A collection of scripts I made to help with common tasks like file organization 
 
 ## TODO
 
-<ol>
+<ul>
     <li>
         <p>
             <s>Implement file organization.</s>
@@ -32,4 +32,4 @@ A collection of scripts I made to help with common tasks like file organization 
     <li>
         <p>Implement versioning strategy and lauch first version.</p>
     </li>
-</ol>
+</ul>
