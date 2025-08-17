@@ -2,70 +2,6 @@
 
 source ./utils.sh
 
-power_point_documents_are_organized() {
-    printf "    > Power Point documents organization..."
-    if ! [[ -e ./target/ms_office/power_point/documents/file.ppt ]]; then
-        echo -e "\n\t! .ppt not found"
-        exit 1
-    fi
-    if ! [[ -e ./target/ms_office/power_point/documents/file.pptx ]]; then
-        echo -e "\n\t! .pptx not found"
-        exit 1
-    fi
-    printf "OK\n"
-}
-
-power_point_templates_are_organized() {
-    printf "    > Power Point templates organization..."
-    if ! [[ -e ./target/ms_office/power_point/templates/file.pot ]]; then
-        echo -e "\n\t! .pot not found"
-        exit 1
-    fi
-    if ! [[ -e ./target/ms_office/power_point/templates/file.potx ]]; then
-        echo -e "\n\t! .potx not found"
-        exit 1
-    fi
-    printf "OK\n"
-}
-
-power_point_macros_are_organized() {
-    printf "    > Power Point macros organization..."
-    if ! [[ -e ./target/ms_office/power_point/macros/file.pptm ]]; then
-        echo -e "\n\t! .pptm not found"
-        exit 1
-    fi
-    if ! [[ -e ./target/ms_office/power_point/macros/file.potm ]]; then
-        echo -e "\n\t! .potm not found"
-        exit 1
-    fi
-    if ! [[ -e ./target/ms_office/power_point/macros/file.ppsm ]]; then
-        echo -e "\n\t! .ppsm not found"
-        exit 1
-    fi
-    if ! [[ -e ./target/ms_office/power_point/macros/file.sldm ]]; then
-        echo -e "\n\t! .sldm not found"
-        exit 1
-    fi
-    printf "OK\n"
-}
-
-power_point_slideshows_are_organized() {
-    printf "    > Power Point slideshows organization..."
-    if ! [[ -e ./target/ms_office/power_point/slideshows/file.pps ]]; then
-        echo -e "\n\t! .pps not found"
-        exit 1
-    fi
-    if ! [[ -e ./target/ms_office/power_point/slideshows/file.ppsx ]]; then
-        echo -e "\n\t! .ppsx not found"
-        exit 1
-    fi
-    if ! [[ -e ./target/ms_office/power_point/slideshows/file.sldx ]]; then
-        echo -e "\n\t! .sldx not found"
-        exit 1
-    fi
-    printf "OK\n"
-}
-
 test_word_files_sorting() {
     local base_dir="./target/ms_office/word"
     printf "\n  > Word files sorting\n"
@@ -111,12 +47,33 @@ test_excel_files_sorting() {
     printf "\n"
 }
 
-power_point_files_are_organized() {
-    printf "  > Power Point files organization\n"
-    power_point_documents_are_organized
-    power_point_templates_are_organized
-    power_point_macros_are_organized
-    power_point_slideshows_are_organized
+test_powerpoint_files_sorting() {
+    local base_dir="./target/ms_office/power_point"
+    printf "  > Power Point files sorting\n"
+
+    printf "    > Documents sorting..."
+    it_exists_in_path "$base_dir"/documents/file.ppt "ppt"
+    it_exists_in_path "$base_dir"/documents/file.pptx "pptx"
+    printf "OK\n"
+
+    printf "    > Templates sorting..."
+    it_exists_in_path "$base_dir"/templates/file.pot "pot"
+    it_exists_in_path "$base_dir"/templates/file.potx "potx"
+    printf "OK\n"
+
+    printf "    > Macros sorting..."
+    it_exists_in_path "$base_dir"/macros/file.pptm "pptm"
+    it_exists_in_path "$base_dir"/macros/file.potm "potm"
+    it_exists_in_path "$base_dir"/macros/file.ppsm "ppsm"
+    it_exists_in_path "$base_dir"/macros/file.sldm "sldm"
+    printf "OK\n"
+
+    printf "    > Slideshows sorting..."
+    it_exists_in_path "$base_dir"/slideshows/file.pps "pps"
+    it_exists_in_path "$base_dir"/slideshows/file.ppsx "ppsx"
+    it_exists_in_path "$base_dir"/slideshows/file.sldx "sldx"
+    printf "OK\n"
+
     printf "\n"
 }
 
@@ -131,7 +88,7 @@ fsort &> /dev/null && cd ..
 
 test_word_files_sorting
 test_excel_files_sorting
-power_point_files_are_organized
+test_powerpoint_files_sorting
 
 remove_folders
 echo -e "> Tests ended"
