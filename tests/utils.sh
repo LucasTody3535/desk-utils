@@ -1,5 +1,13 @@
 # shellcheck disable=SC2148
 
+function it_exists_in_path() {
+    if ! [[ -e "$1" ]]; then
+        echo -e "\n\t! .""$2"" not found"
+        exit 1
+    fi
+    return
+}
+
 remove_folders() {
     rm -rf ./target/ms_office
 }
