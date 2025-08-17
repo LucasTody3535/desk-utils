@@ -2,45 +2,6 @@
 
 source ./utils.sh
 
-word_documents_are_organized() {
-    printf "    > Word documents organization..."
-    if ! [[ -e ./target/ms_office/word/documents/file.doc ]]; then
-        echo -e "\n\t! .doc not found"
-        exit 1
-    fi
-    if ! [[ -e ./target/ms_office/word/documents/file.docx ]]; then
-        echo -e "\n\t! .docx not found"
-        exit 1
-    fi
-    printf "OK\n"
-}
-
-word_templates_are_organized() {
-    printf "    > Word templates organization..."
-    if ! [[ -e ./target/ms_office/word/templates/file.dot ]]; then
-        echo -e "\n\t! .dot not found"
-        exit 1
-    fi
-    if ! [[ -e ./target/ms_office/word/templates/file.dotx ]]; then
-        echo -e "\n\t! .dotx not found"
-        exit 1
-    fi
-    printf "OK\n"
-}
-
-word_macros_are_organized() {
-    printf "    > Word macros organization..."
-    if ! [[ -e ./target/ms_office/word/macros/file.docm ]]; then
-        echo -e "\n\t! .docm not found"
-        exit 1
-    fi
-    if ! [[ -e ./target/ms_office/word/macros/file.dotm ]]; then
-        echo -e "\n\t! .dotm not found"
-        exit 1
-    fi
-    printf "OK\n"
-}
-
 excel_documents_are_organized() {
     printf "    > Excel documents organization..."
     if ! [[ -e ./target/ms_office/excel/documents/file.xls ]]; then
@@ -148,11 +109,25 @@ power_point_slideshows_are_organized() {
     printf "OK\n"
 }
 
-word_files_are_organized() {
-    printf "\n  > Word files organization\n"
-    word_documents_are_organized
-    word_templates_are_organized
-    word_macros_are_organized
+test_word_files_sorting() {
+    local base_dir="./target/ms_office/word"
+    printf "\n  > Word files sorting\n"
+
+    printf "    > Documents sorting..."
+    it_exists_in_path "$base_dir"/documents/file.doc "doc"
+    it_exists_in_path "$base_dir"/documents/file.docx "docx"
+    printf "OK\n"
+
+    printf "    > Templates sorting..."
+    it_exists_in_path "$base_dir"/templates/file.dot "dot"
+    it_exists_in_path "$base_dir"/templates/file.dotx "dotx"
+    printf "OK\n"
+
+    printf "    > Macros sorting..."
+    it_exists_in_path "$base_dir"/macros/file.docm "docm"
+    it_exists_in_path "$base_dir"/macros/file.dotm "dotm"
+    printf "OK\n"
+
     printf "\n"
 }
 
@@ -182,7 +157,7 @@ setup
 cd ./target || exit
 fsort &> /dev/null && cd ..
 
-word_files_are_organized
+test_word_files_sorting
 excel_files_are_organized
 power_point_files_are_organized
 
