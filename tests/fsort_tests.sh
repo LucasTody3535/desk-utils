@@ -2,49 +2,6 @@
 
 source ./utils.sh
 
-excel_documents_are_organized() {
-    printf "    > Excel documents organization..."
-    if ! [[ -e ./target/ms_office/excel/documents/file.xls ]]; then
-        echo -e "\n\t! .xls not found"
-        exit 1
-    fi
-    if ! [[ -e ./target/ms_office/excel/documents/file.xlsx ]]; then
-        echo -e "\n\t! .xlsx not found"
-        exit 1
-    fi
-    printf "OK\n"
-}
-
-excel_templates_are_organized() {
-    printf "    > Excel templates organization..."
-    if ! [[ -e ./target/ms_office/excel/templates/file.xlt ]]; then
-        echo -e "\n\t! .xlt not found"
-        exit 1
-    fi
-    if ! [[ -e ./target/ms_office/excel/templates/file.xltx ]]; then
-        echo -e "\n\t! .xltx not found"
-        exit 1
-    fi
-    printf "OK\n"
-}
-
-excel_macros_are_organized() {
-    printf "    > Excel macros organization..."
-    if ! [[ -e ./target/ms_office/excel/macros/file.xlm ]]; then
-        echo -e "\n\t! .xlm not found"
-        exit 1
-    fi
-    if ! [[ -e ./target/ms_office/excel/macros/file.xlsm ]]; then
-        echo -e "\n\t! .xlsm not found"
-        exit 1
-    fi
-    if ! [[ -e ./target/ms_office/excel/macros/file.xltm ]]; then
-        echo -e "\n\t! .xltm not found"
-        exit 1
-    fi
-    printf "OK\n"
-}
-
 power_point_documents_are_organized() {
     printf "    > Power Point documents organization..."
     if ! [[ -e ./target/ms_office/power_point/documents/file.ppt ]]; then
@@ -131,11 +88,26 @@ test_word_files_sorting() {
     printf "\n"
 }
 
-excel_files_are_organized() {
-    printf "  > Excel files organization\n"
-    excel_documents_are_organized
-    excel_templates_are_organized
-    excel_macros_are_organized
+test_excel_files_sorting() {
+    local base_dir="./target/ms_office/excel"
+    printf "  > Excel files sorting\n"
+
+    printf "    > Documents sorting..."
+    it_exists_in_path "$base_dir"/documents/file.xls "xls"
+    it_exists_in_path "$base_dir"/documents/file.xlsx "xlsx"
+    printf "OK\n"
+
+    printf "    > Templates sorting..."
+    it_exists_in_path "$base_dir"/templates/file.xlt "xlt"
+    it_exists_in_path "$base_dir"/templates/file.xltx "xltx"
+    printf "OK\n"
+
+    printf "    > Macros sorting..."
+    it_exists_in_path "$base_dir"/macros/file.xlm "xlm"
+    it_exists_in_path "$base_dir"/macros/file.xlsm "xlsm"
+    it_exists_in_path "$base_dir"/macros/file.xltm "xltm"
+    printf "OK\n"
+
     printf "\n"
 }
 
@@ -158,7 +130,7 @@ cd ./target || exit
 fsort &> /dev/null && cd ..
 
 test_word_files_sorting
-excel_files_are_organized
+test_excel_files_sorting
 power_point_files_are_organized
 
 remove_folders
