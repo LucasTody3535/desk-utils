@@ -8,12 +8,10 @@ function it_exists_in_path() {
     return
 }
 
-remove_folders() {
-    rm -rf ./target/ms_office
-}
-
 # shellcheck disable=SC2188
 setup() {
+    mkdir ./target
+
     > ./target/file.doc
     > ./target/file.docx
     > ./target/file.dot

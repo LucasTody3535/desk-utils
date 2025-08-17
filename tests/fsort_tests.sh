@@ -80,7 +80,7 @@ test_powerpoint_files_sorting() {
 
 clear
 echo "> Running tests"
-remove_folders
+rm -rf ./target
 setup
 
 cd ./target || exit
@@ -90,5 +90,5 @@ test_word_files_sorting
 test_excel_files_sorting
 test_powerpoint_files_sorting
 
-remove_folders
+rm -rf ./target
 echo -e "> Tests ended"
