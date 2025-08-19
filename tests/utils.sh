@@ -1,5 +1,10 @@
 # shellcheck disable=SC2148
 
+function run_fsort() {
+    cd ./target || exit
+    fsort &> /dev/null && cd ..
+}
+
 function it_exists_in_path() {
     if ! [[ -e "$1" ]]; then
         echo -e "\n\t! .""$2"" not found"

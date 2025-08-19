@@ -213,8 +213,7 @@ echo "> Running tests"
 rm -rf ./target
 setup
 
-cd ./target || exit
-fsort &> /dev/null && cd ..
+run_fsort
 
 test_ms_office_files_sorting
 test_acrobat_files_sorting
