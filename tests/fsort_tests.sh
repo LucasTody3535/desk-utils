@@ -118,6 +118,26 @@ test_calc_files_sorting() {
     printf "\n"
 }
 
+test_impress_files_sorting() {
+    local base_dir="./target/libreoffice/impress"
+    printf "  > Impress files sorting\n"
+
+    printf "    > Documents sorting..."
+    it_exists_in_path "$base_dir"/documents/file.odp "odp"
+    it_exists_in_path "$base_dir"/documents/file.fodp "fodp"
+    printf "OK\n"
+
+    printf "    > Templates sorting..."
+    it_exists_in_path "$base_dir"/templates/file.otp "otp"
+    printf "OK\n"
+
+    printf "    > Drawings sorting..."
+    it_exists_in_path "$base_dir"/drawings/file.odg "odg"
+    printf "OK\n"
+
+    printf "\n"
+}
+
 clear
 echo "> Running tests"
 rm -rf ./target
@@ -134,6 +154,7 @@ test_acrobat_files_sorting
 
 test_writer_files_sorting
 test_calc_files_sorting
+test_impress_files_sorting
 
 rm -rf ./target
 echo -e "> Tests ended"
