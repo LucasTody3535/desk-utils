@@ -37,9 +37,7 @@ test_ms_office_files_sorting() {
     it_exists_in_path "$base_dir"/power_point/slideshows/file.pps "pps"
     it_exists_in_path "$base_dir"/power_point/slideshows/file.ppsx "ppsx"
     it_exists_in_path "$base_dir"/power_point/slideshows/file.sldx "sldx"
-    printf "OK\n"
-
-    printf "\n"
+    printf "OK\n\n"
 }
 
 test_acrobat_files_sorting() {
@@ -72,9 +70,7 @@ test_libreoffice_files_sorting() {
     it_exists_in_path "$base_dir"/impress/documents/file.fodp "fodp"
     it_exists_in_path "$base_dir"/impress/templates/file.otp "otp"
     it_exists_in_path "$base_dir"/impress/drawings/file.odg "odg"
-    printf "OK\n"
-
-    printf "\n"
+    printf "OK\n\n"
 }
 
 test_image_files_sorting() {
@@ -112,9 +108,7 @@ test_image_files_sorting() {
 
     printf "    > Ico file sorting..."
     it_exists_in_path "$base_dir"/ico/file.ico "ico"
-    printf "OK\n"
-
-    printf "\n"
+    printf "OK\n\n"
 }
 
 test_compressed_files_sorting() {
@@ -143,9 +137,7 @@ test_compressed_files_sorting() {
 
     printf "    > 7zip file sorting..."
     it_exists_in_path "$base_dir"/7zip/file.7z "7z"
-    printf "OK\n"
-
-    printf "\n"
+    printf "OK\n\n"
 }
 
 test_java_files_sorting() {
