@@ -199,6 +199,15 @@ test_videos_sorting() {
     printf "OK\n\n"
 }
 
+test_os_images_sorting() {
+    local base_dir="./target/os_images"
+    printf "  > OS images sorting\n"
+
+    printf "    > Iso file sorting..."
+    it_exists_in_path "$base_dir"/file.iso "iso"
+    printf "OK\n\n"
+}
+
 clear
 echo "> Running tests"
 rm -rf ./target
@@ -217,6 +226,7 @@ test_uncategorized_files_sorting
 test_applications_sorting
 test_audios_sorting
 test_videos_sorting
+test_os_images_sorting
 
 rm -rf ./target
 echo -e "> Tests ended"

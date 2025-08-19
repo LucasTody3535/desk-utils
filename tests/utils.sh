@@ -89,4 +89,6 @@ setup() {
     > ./target/file.wav
 
     > ./target/file.mp4
+
+    > ./target/file.iso
 }
