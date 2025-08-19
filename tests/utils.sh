@@ -79,4 +79,9 @@ setup() {
 
     > ./target/file.txt
     > ./target/file.drawio
+
+    > ./target/file.msi
+    > ./target/file.exe
+    > ./target/file.deb
+    > ./target/file.AppImage
 }

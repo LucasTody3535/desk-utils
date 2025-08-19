@@ -170,6 +170,21 @@ test_uncategorized_files_sorting() {
     printf "OK\n\n"
 }
 
+test_applications_sorting() {
+    local base_dir="./target/applications"
+    printf "  > Applications sorting\n"
+
+    printf "    > Windows apps sorting..."
+    it_exists_in_path "$base_dir"/windows/msi/file.msi "msi"
+    it_exists_in_path "$base_dir"/windows/exe/file.exe "exe"
+    printf "OK\n"
+
+    printf "    > Linux apps sorting..."
+    it_exists_in_path "$base_dir"/linux/deb/file.deb "deb"
+    it_exists_in_path "$base_dir"/linux//appimage/file.AppImage "AppImage"
+    printf "OK\n\n"
+}
+
 clear
 echo "> Running tests"
 rm -rf ./target
@@ -185,6 +200,7 @@ test_image_files_sorting
 test_compressed_files_sorting
 test_java_files_sorting
 test_uncategorized_files_sorting
+test_applications_sorting
 
 rm -rf ./target
 echo -e "> Tests ended"
