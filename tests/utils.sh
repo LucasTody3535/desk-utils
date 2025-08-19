@@ -87,4 +87,6 @@ setup() {
 
     > ./target/file.mp3
     > ./target/file.wav
+
+    > ./target/file.mp4
 }

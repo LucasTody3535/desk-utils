@@ -190,6 +190,15 @@ test_audios_sorting() {
     printf "OK\n\n"
 }
 
+test_videos_sorting() {
+    local base_dir="./target/videos"
+    printf "  > Videos sorting\n"
+
+    printf "    > Mp4 file sorting..."
+    it_exists_in_path "$base_dir"/mp4/file.mp4 "mp4"
+    printf "OK\n\n"
+}
+
 clear
 echo "> Running tests"
 rm -rf ./target
@@ -207,6 +216,7 @@ test_java_files_sorting
 test_uncategorized_files_sorting
 test_applications_sorting
 test_audios_sorting
+test_videos_sorting
 
 rm -rf ./target
 echo -e "> Tests ended"
