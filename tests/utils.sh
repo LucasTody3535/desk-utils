@@ -38,4 +38,6 @@ setup() {
     > ./target/file.pps
     > ./target/file.ppsx
     > ./target/file.sldx
+
+    > ./target/file.pdf
 }

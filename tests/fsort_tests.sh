@@ -77,6 +77,14 @@ test_powerpoint_files_sorting() {
     printf "\n"
 }
 
+test_acrobat_files_sorting() {
+    local base_dir="./target/acrobat"
+    printf "  > Acrobat files sorting\n"
+
+    printf "    > PDF file sorting..."
+    it_exists_in_path "$base_dir"/pdf_documents/file.pdf "pdf"
+    printf "OK\n\n"
+}
 
 clear
 echo "> Running tests"
@@ -89,6 +97,8 @@ fsort &> /dev/null && cd ..
 test_word_files_sorting
 test_excel_files_sorting
 test_powerpoint_files_sorting
+
+test_acrobat_files_sorting
 
 rm -rf ./target
 echo -e "> Tests ended"
