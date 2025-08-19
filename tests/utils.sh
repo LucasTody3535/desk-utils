@@ -45,4 +45,9 @@ setup() {
     > ./target/file.fodt
 
     > ./target/file.ott
+
+    > ./target/file.ods
+    > ./target/file.fods
+
+    > ./target/file.ots
 }
