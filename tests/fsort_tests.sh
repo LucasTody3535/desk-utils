@@ -208,6 +208,18 @@ test_os_images_sorting() {
     printf "OK\n\n"
 }
 
+test_filename_duplicates_handling() {
+    local base_dir="./target/os_images"
+    printf "  > OS images filename duplicates handling\n"
+
+    printf "    > Iso file is renamed..."
+
+    if ! [[ $(find ./target/os_images -name "*.iso" | wc -l) -eq 2 ]]; then
+        printf "\n\t! renamed iso file not found"
+    fi
+    printf "OK\n\n"
+}
+
 clear
 echo "> Running tests"
 rm -rf ./target
@@ -226,6 +238,14 @@ test_applications_sorting
 test_audios_sorting
 test_videos_sorting
 test_os_images_sorting
+
+# Testing file duplicate handling
+# shellcheck disable=SC2188
+> ./target/file.iso
+run_fsort
+
+test_filename_duplicates_handling
+
 
 rm -rf ./target
 echo -e "> Tests ended"
