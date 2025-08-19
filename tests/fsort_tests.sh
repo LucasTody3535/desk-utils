@@ -148,6 +148,15 @@ test_compressed_files_sorting() {
     printf "\n"
 }
 
+test_java_files_sorting() {
+    local base_dir="./target/java"
+    printf "  > Java files sorting\n"
+
+    printf "    > Jar file sorting..."
+    it_exists_in_path "$base_dir"/jars/file.jar "jar"
+    printf "OK\n\n"
+}
+
 clear
 echo "> Running tests"
 rm -rf ./target
@@ -161,6 +170,7 @@ test_acrobat_files_sorting
 test_libreoffice_files_sorting
 test_image_files_sorting
 test_compressed_files_sorting
+test_java_files_sorting
 
 rm -rf ./target
 echo -e "> Tests ended"

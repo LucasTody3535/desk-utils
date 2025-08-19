@@ -74,4 +74,6 @@ setup() {
     > ./target/file.tar
     > ./target/file.rar
     > ./target/file.7z
+
+    > ./target/file.jar
 }
