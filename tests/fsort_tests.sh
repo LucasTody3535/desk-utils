@@ -86,6 +86,22 @@ test_acrobat_files_sorting() {
     printf "OK\n\n"
 }
 
+test_writer_files_sorting() {
+    local base_dir="./target/libreoffice/writer"
+    printf "  > Writer files sorting\n"
+
+    printf "    > Documents sorting..."
+    it_exists_in_path "$base_dir"/documents/file.odt "odt"
+    it_exists_in_path "$base_dir"/documents/file.fodt "fodt"
+    printf "OK\n"
+
+    printf "    > Templates sorting..."
+    it_exists_in_path "$base_dir"/templates/file.ott "ott"
+    printf "OK\n"
+
+    printf "\n"
+}
+
 clear
 echo "> Running tests"
 rm -rf ./target
@@ -99,6 +115,8 @@ test_excel_files_sorting
 test_powerpoint_files_sorting
 
 test_acrobat_files_sorting
+
+test_writer_files_sorting
 
 rm -rf ./target
 echo -e "> Tests ended"

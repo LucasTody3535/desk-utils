@@ -40,4 +40,9 @@ setup() {
     > ./target/file.sldx
 
     > ./target/file.pdf
+
+    > ./target/file.odt
+    > ./target/file.fodt
+
+    > ./target/file.ott
 }
