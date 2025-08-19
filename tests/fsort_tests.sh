@@ -117,6 +117,37 @@ test_image_files_sorting() {
     printf "\n"
 }
 
+test_compressed_files_sorting() {
+    local base_dir="./target/compressed_files"
+    printf "  > Compressed files sorting\n"
+
+    printf "    > Zip file sorting..."
+    it_exists_in_path "$base_dir"/zip/file.zip "zip"
+    printf "OK\n"
+
+    printf "    > Bz2 file sorting..."
+    it_exists_in_path "$base_dir"/bzip2/file.bz2 "bz2"
+    printf "OK\n"
+
+    printf "    > Gzip file sorting..."
+    it_exists_in_path "$base_dir"/gzip/file.gz "gz"
+    printf "OK\n"
+
+    printf "    > Tar file sorting..."
+    it_exists_in_path "$base_dir"/tar/file.tar "tar"
+    printf "OK\n"
+
+    printf "    > Rar file sorting..."
+    it_exists_in_path "$base_dir"/rar/file.rar "rar"
+    printf "OK\n"
+
+    printf "    > 7zip file sorting..."
+    it_exists_in_path "$base_dir"/7zip/file.7z "7z"
+    printf "OK\n"
+
+    printf "\n"
+}
+
 clear
 echo "> Running tests"
 rm -rf ./target
@@ -129,6 +160,7 @@ test_ms_office_files_sorting
 test_acrobat_files_sorting
 test_libreoffice_files_sorting
 test_image_files_sorting
+test_compressed_files_sorting
 
 rm -rf ./target
 echo -e "> Tests ended"

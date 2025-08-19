@@ -67,4 +67,11 @@ setup() {
     > ./target/file.webp
     > ./target/file.bmp
     > ./target/file.ico
+
+    > ./target/file.zip
+    > ./target/file.bz2
+    > ./target/file.gz
+    > ./target/file.tar
+    > ./target/file.rar
+    > ./target/file.7z
 }
