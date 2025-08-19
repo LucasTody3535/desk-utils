@@ -51,53 +51,27 @@ test_acrobat_files_sorting() {
     printf "OK\n\n"
 }
 
-test_writer_files_sorting() {
-    local base_dir="./target/libreoffice/writer"
-    printf "  > Writer files sorting\n"
+test_libreoffice_files_sorting() {
+    local base_dir="./target/libreoffice"
+    printf "  > Libreoffice files sorting\n"
 
-    printf "    > Documents sorting..."
-    it_exists_in_path "$base_dir"/documents/file.odt "odt"
-    it_exists_in_path "$base_dir"/documents/file.fodt "fodt"
+    printf "    > Writer files sorting..."
+    it_exists_in_path "$base_dir"/writer/documents/file.odt "odt"
+    it_exists_in_path "$base_dir"/writer/documents/file.fodt "fodt"
+    it_exists_in_path "$base_dir"/writer/templates/file.ott "ott"
     printf "OK\n"
 
-    printf "    > Templates sorting..."
-    it_exists_in_path "$base_dir"/templates/file.ott "ott"
+    printf "    > Calc files sorting..."
+    it_exists_in_path "$base_dir"/calc/documents/file.ods "ods"
+    it_exists_in_path "$base_dir"/calc/documents/file.fods "fods"
+    it_exists_in_path "$base_dir"/calc/templates/file.ots "ots"
     printf "OK\n"
 
-    printf "\n"
-}
-
-test_calc_files_sorting() {
-    local base_dir="./target/libreoffice/calc"
-    printf "  > Calc files sorting\n"
-
-    printf "    > Documents sorting..."
-    it_exists_in_path "$base_dir"/documents/file.ods "ods"
-    it_exists_in_path "$base_dir"/documents/file.fods "fods"
-    printf "OK\n"
-
-    printf "    > Templates sorting..."
-    it_exists_in_path "$base_dir"/templates/file.ots "ots"
-    printf "OK\n"
-
-    printf "\n"
-}
-
-test_impress_files_sorting() {
-    local base_dir="./target/libreoffice/impress"
-    printf "  > Impress files sorting\n"
-
-    printf "    > Documents sorting..."
-    it_exists_in_path "$base_dir"/documents/file.odp "odp"
-    it_exists_in_path "$base_dir"/documents/file.fodp "fodp"
-    printf "OK\n"
-
-    printf "    > Templates sorting..."
-    it_exists_in_path "$base_dir"/templates/file.otp "otp"
-    printf "OK\n"
-
-    printf "    > Drawings sorting..."
-    it_exists_in_path "$base_dir"/drawings/file.odg "odg"
+    printf "    > Impress files sorting..."
+    it_exists_in_path "$base_dir"/impress/documents/file.odp "odp"
+    it_exists_in_path "$base_dir"/impress/documents/file.fodp "fodp"
+    it_exists_in_path "$base_dir"/impress/templates/file.otp "otp"
+    it_exists_in_path "$base_dir"/impress/drawings/file.odg "odg"
     printf "OK\n"
 
     printf "\n"
@@ -153,11 +127,7 @@ fsort &> /dev/null && cd ..
 
 test_ms_office_files_sorting
 test_acrobat_files_sorting
-
-test_writer_files_sorting
-test_calc_files_sorting
-test_impress_files_sorting
-
+test_libreoffice_files_sorting
 test_image_files_sorting
 
 rm -rf ./target
