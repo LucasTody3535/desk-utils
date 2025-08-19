@@ -57,4 +57,14 @@ setup() {
     > ./target/file.otp
 
     > ./target/file.odg
+
+    > ./target/file.png
+    > ./target/file.avif
+    > ./target/file.gif
+    > ./target/file.jpg
+    > ./target/file.jpeg
+    > ./target/file.svg
+    > ./target/file.webp
+    > ./target/file.bmp
+    > ./target/file.ico
 }

@@ -138,6 +138,46 @@ test_impress_files_sorting() {
     printf "\n"
 }
 
+test_image_files_sorting() {
+    local base_dir="./target/images"
+    printf "  > Image files sorting\n"
+
+    printf "    > Png file sorting..."
+    it_exists_in_path "$base_dir"/png/file.png "png"
+    printf "OK\n"
+
+    printf "    > Avif file sorting..."
+    it_exists_in_path "$base_dir"/avif/file.avif "avif"
+    printf "OK\n"
+
+    printf "    > Gif file sorting..."
+    it_exists_in_path "$base_dir"/gif/file.gif "gif"
+    printf "OK\n"
+
+    printf "    > Jpeg files sorting..."
+    it_exists_in_path "$base_dir"/jpeg/file.jpg "jpg"
+    it_exists_in_path "$base_dir"/jpeg/file.jpeg "jpeg"
+    printf "OK\n"
+
+    printf "    > Svg file sorting..."
+    it_exists_in_path "$base_dir"/svg/file.svg "svg"
+    printf "OK\n"
+
+    printf "    > Webp file sorting..."
+    it_exists_in_path "$base_dir"/webp/file.webp "webp"
+    printf "OK\n"
+
+    printf "    > Bitmap file sorting..."
+    it_exists_in_path "$base_dir"/bitmap/file.bmp "bmp"
+    printf "OK\n"
+
+    printf "    > Ico file sorting..."
+    it_exists_in_path "$base_dir"/ico/file.ico "ico"
+    printf "OK\n"
+
+    printf "\n"
+}
+
 clear
 echo "> Running tests"
 rm -rf ./target
@@ -155,6 +195,8 @@ test_acrobat_files_sorting
 test_writer_files_sorting
 test_calc_files_sorting
 test_impress_files_sorting
+
+test_image_files_sorting
 
 rm -rf ./target
 echo -e "> Tests ended"
