@@ -84,4 +84,7 @@ setup() {
     > ./target/file.exe
     > ./target/file.deb
     > ./target/file.AppImage
+
+    > ./target/file.mp3
+    > ./target/file.wav
 }

@@ -185,6 +185,19 @@ test_applications_sorting() {
     printf "OK\n\n"
 }
 
+test_audios_sorting() {
+    local base_dir="./target/audios"
+    printf "  > Audios sorting\n"
+
+    printf "    > Mp3 file sorting..."
+    it_exists_in_path "$base_dir"/mp3/file.mp3 "mp3"
+    printf "OK\n"
+
+    printf "    > Wav file sorting..."
+    it_exists_in_path "$base_dir"/wav/file.wav "wav"
+    printf "OK\n\n"
+}
+
 clear
 echo "> Running tests"
 rm -rf ./target
@@ -201,6 +214,7 @@ test_compressed_files_sorting
 test_java_files_sorting
 test_uncategorized_files_sorting
 test_applications_sorting
+test_audios_sorting
 
 rm -rf ./target
 echo -e "> Tests ended"
