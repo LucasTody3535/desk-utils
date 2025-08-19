@@ -157,6 +157,19 @@ test_java_files_sorting() {
     printf "OK\n\n"
 }
 
+test_uncategorized_files_sorting() {
+    local base_dir="./target/uncategorized"
+    printf "  > Uncategorized files sorting\n"
+
+    printf "    > Txt file sorting..."
+    it_exists_in_path "$base_dir"/txt/file.txt "txt"
+    printf "OK\n"
+    
+    printf "    > Drawio file sorting..."
+    it_exists_in_path "$base_dir"/drawio/file.drawio "drawio"
+    printf "OK\n\n"
+}
+
 clear
 echo "> Running tests"
 rm -rf ./target
@@ -171,6 +184,7 @@ test_libreoffice_files_sorting
 test_image_files_sorting
 test_compressed_files_sorting
 test_java_files_sorting
+test_uncategorized_files_sorting
 
 rm -rf ./target
 echo -e "> Tests ended"

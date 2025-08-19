@@ -76,4 +76,7 @@ setup() {
     > ./target/file.7z
 
     > ./target/file.jar
+
+    > ./target/file.txt
+    > ./target/file.drawio
 }
